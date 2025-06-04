@@ -1,7 +1,7 @@
-import { userState } from 'react';
+import { useState } from 'react';
 
 function TodoForm({ onAdd }) {
-    const [text, setText] = userState('');
+    const [text, setText] = useState('');
 
     const handleSubmit = (e) => {
         e.preventDefault();
