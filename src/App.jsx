@@ -1,18 +1,20 @@
 import { useState, useEffect } from 'react';
+import Header from './components/Header';
+import Footer from './components/Footer';
 import TodoForm from './components/TodoForm';
 import TodoList from './components/TodoList';
 
 function App() {
   const [todos, setTodos] = useState([]);
-
+  
   useEffect(() => {
     const saved = localStorage.getItem('my-todos');
     if (saved) {
       setTodos(JSON.parse(saved));
     }
   }, []);
-
-  useEffect (() => {
+  
+  useEffect(() => {
     localStorage.setItem('my-dotos', JSON.stringify(todos));
   }, [todos]);
   
@@ -33,10 +35,13 @@ function App() {
   };
   
   return (
-    <div>
-      <h1>TODOアプリ</h1>
-      <TodoForm onAdd={addTodo} />
-      <TodoList todos={todos} onToggle={toggleTodo} onDelete={deleteTodo} />
+    <div style={{ paddingBottom: '60px' }}>
+      <Header />
+      <main style={{ padding: '20px', maxWidth: '600px', margin: '0 auto' }}>
+        <TodoForm onAdd={addTodo} />
+        <TodoList todos={todos} onToggle={toggleTodo} onDelete={deleteTodo} />
+      </main>
+      <Footer />
     </div>
   );
 }
