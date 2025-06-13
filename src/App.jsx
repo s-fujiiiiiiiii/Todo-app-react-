@@ -6,7 +6,7 @@ import AboutPage from './pages/AboutPage';
 import useTodos from './hooks/useTodos';
 
 function App() {
-  const { todos, addTodo, toggleTodo, deleteTodo } = useTodos();
+  const { todos, addTodo, toggleTodo, deleteTodo, editTodo } = useTodos();
   
   return (
     <Router>
@@ -22,6 +22,7 @@ function App() {
                   addTodo={addTodo}
                   toggleTodo={toggleTodo}
                   deleteTodo={deleteTodo}
+                  editTodo={editTodo}
                 />
               }
             />

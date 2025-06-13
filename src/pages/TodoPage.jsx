@@ -2,7 +2,7 @@ import { useState } from 'react';
 import TodoForm from '../components/TodoForm';
 import TodoList from '../components/TodoList';
 
-function TodoPage({ todos, addTodo, toggleTodo, deleteTodo }) {
+function TodoPage({ todos, addTodo, toggleTodo, deleteTodo, editTodo }) {
 	const [filter, setFilter] = useState('all');
 	
 	const filteredTodos = todos.filter(todo => {
@@ -22,7 +22,7 @@ function TodoPage({ todos, addTodo, toggleTodo, deleteTodo }) {
         <button onClick={() => setFilter('done')}>完了</button>
       </div>
             
-      <TodoList todos={filteredTodos} onToggle={toggleTodo} onDelete={deleteTodo} />
+      <TodoList todos={filteredTodos} onToggle={toggleTodo} onDelete={deleteTodo} onEdit={editTodo}/>
     </div>
   );
 }
